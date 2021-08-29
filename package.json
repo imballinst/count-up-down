@@ -1,0 +1,30 @@
+{
+  "name": "count-up-down",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:imballinst/count-up-down.git",
+  "author": "Try Ajitiono <ballinst@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.5",
+    "browserslist": "4.16.8",
+    "esbuild": "0.12.24",
+    "typescript": "^4.4.2"
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "ie 10"
+    ],
+    "modern": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ],
+    "ssr": [
+      "node 12"
+    ]
+  }
+}
