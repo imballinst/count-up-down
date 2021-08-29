@@ -21,18 +21,25 @@ export function renderToDivs({
   const minutesDiv = document.getElementById('minutes');
   const secondsDiv = document.getElementById('seconds');
 
-  yearsDiv.innerHTML = appendZeros(years);
-  monthsDiv.innerHTML = appendZeros(months);
-  daysDiv.innerHTML = appendZeros(days);
-  hoursDiv.innerHTML = appendZeros(hours);
-  minutesDiv.innerHTML = appendZeros(minutes);
-  secondsDiv.innerHTML = appendZeros(seconds);
+  render(yearsDiv, years);
+  render(monthsDiv, months);
+  render(daysDiv, days);
+  render(hoursDiv, hours);
+  render(minutesDiv, minutes);
+  render(secondsDiv, seconds);
 }
 
-function appendZeros(value: number) {
-  if (value < 10) {
-    return `0${value}`;
+function render(el: HTMLElement | null, value: number) {
+  if (el === null) {
+    return;
   }
 
-  return `${value}`;
+  let htmlContent = `${value}`;
+
+  // Pad numbers when less than 2 digits.
+  if (value < 10) {
+    htmlContent = `0${value}`;
+  }
+
+  el.innerHTML = htmlContent;
 }

@@ -1,19 +1,18 @@
-import esbuild from 'esbuild';
+import path from 'path';
+import { build } from 'esbuild';
+
+import { BrowsersListPlugin } from '../../../plugins/browserslist';
 import * as CONSTANTS from '../../constants';
 
-esbuild
-  .build({
-    entryPoints: [`${CONSTANTS.SRC_DIR}/index.ts`],
-    bundle: true,
-    minify: true,
-    outfile: 'build/count-up-down.js',
-    plugins: [
-      {
-        name: 'test',
-        setup: (build) => {
-          build.initialOptions.target;
-        }
-      }
-    ]
-  })
-  .catch(() => process.exit(1));
+build({
+  entryPoints: [`${CONSTANTS.SRC_DIR}/index.js`],
+  bundle: true,
+  outfile: 'dist/count-up-down.js',
+  plugins: [BrowsersListPlugin],
+  define: {
+    PATH_TO_PACKAGE_JSON: `"${path.join(CONSTANTS.ROOT_DIR, 'package.json')}"`
+  }
+}).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

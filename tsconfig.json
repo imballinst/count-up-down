@@ -1,14 +1,15 @@
 {
-  "include": ["./src/**/*.ts", "./scripts/**/*.ts"],
+  "include": ["./src/*.ts", "./scripts/**/*.ts"],
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "lib": ["dom", "ESNext"],
+    "target": "ES2015",
+    "outDir": "./lib",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
     "strict": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noEmit": true,
     "skipLibCheck": true
   }
 }
