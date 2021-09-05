@@ -1,45 +1,63 @@
 // Constants.
+const ONE_YEAR_IN_MONTHS = 12;
+const ONE_DAY_IN_HOURS = 24;
+const ONE_HOUR_IN_MINUTES = 60;
 const ONE_MINUTE_IN_SECONDS = 60;
+
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS * 60;
 const ONE_DAY_IN_SECONDS = ONE_HOUR_IN_SECONDS * 24;
 const ONE_DAY_IN_MILLISECONDS = ONE_DAY_IN_SECONDS * 1000;
-// From Instagram tag: `<time class="_1o9PC Nzb55" datetime="2020-07-12T03:04:06.000Z" title="Jul 12, 2020">July 12</time>`.
-// Instagram datetime post: 2020-07-12T03:04:06.000Z.
-// Time-stamp the "ijab qabul" was done: 39:21/59:54 -- so there is 20 mins and 33 secs to go.
-// Add the datetime to GMT+7, 10:04:06.
-// Subtract the datetime with 20 mins and 33 secs -- 09:43:33.
-const WEDDING_DATE = new Date(2020, 6 /* July */, 12, 9, 43, 33);
 // Re-assign functions from JavaScript engine.
 const { floor } = Math;
 
-export function calculate(currentDate = new Date()) {
-  let years;
-  let months;
-  let days;
-  let hours;
-  let minutes;
-  let seconds;
+export function calculate(date1 = new Date(), date2 = new Date()) {
+  // Not sure what is the correct term, I use "smaller" and "bigger"
+  // because technically as time progresses, the milliseconds also increases.
+  let smallerDate = date1;
+  let biggerDate = date2;
+  let years: number;
+  let months: number;
+  let days: number;
+  let hours: number;
+  let minutes: number;
+  let seconds: number;
+  let type: 'countdown' | 'countup' | 'exact';
 
   // Get raw time.
-  const weddingMilliSeconds = WEDDING_DATE.getTime();
-  const currentMilliSeconds = currentDate.getTime();
-  const diff = currentMilliSeconds - weddingMilliSeconds;
+  let smallerMilliSeconds = smallerDate.getTime();
+  let biggerMilliSeconds = biggerDate.getTime();
+  let diff = biggerMilliSeconds - smallerMilliSeconds;
+
+  if (diff < 0) {
+    type = 'countdown';
+    diff = Math.abs(diff);
+    // Flip the variables.
+    biggerDate = date1;
+    biggerMilliSeconds = date1.getTime();
+
+    smallerDate = date2;
+    smallerMilliSeconds = date2.getTime();
+  } else if (diff > 0) {
+    type = 'countup';
+  } else {
+    type = 'exact';
+  }
 
   // We can cut off years first as the number of days is static, 365 or 366.
-  years = currentDate.getFullYear() - WEDDING_DATE.getFullYear();
+  years = biggerDate.getFullYear() - smallerDate.getFullYear();
 
   // For months and days, however, it's a little bit tricky.
-  const weddingMonth = WEDDING_DATE.getMonth();
-  const currentMonth = currentDate.getMonth();
+  const smallerMonth = smallerDate.getMonth();
+  const biggerMonth = biggerDate.getMonth();
 
   // Don't forget to subtract this if date, hours, minutes, seconds is lesser.
-  months = currentMonth - weddingMonth;
+  months = biggerMonth - smallerMonth;
 
   // Days.
-  const weddingDateInMonth = WEDDING_DATE.getDate();
-  const currentDateInMonth = currentDate.getDate();
+  const smallerDateInMonth = smallerDate.getDate();
+  const biggerDateInMonth = biggerDate.getDate();
 
-  days = currentDateInMonth - weddingDateInMonth;
+  days = biggerDateInMonth - smallerDateInMonth;
 
   // We use this to calculate time.
   const daysRemainder = Math.floor((diff % ONE_DAY_IN_MILLISECONDS) / 1000);
@@ -53,41 +71,26 @@ export function calculate(currentDate = new Date()) {
 
   seconds = minutesRemainder % ONE_MINUTE_IN_SECONDS;
 
-  if (currentDateInMonth === weddingDateInMonth) {
-    // Check hours.
-    const weddingHours = WEDDING_DATE.getHours();
-    const currentHours = currentDate.getHours();
-
-    if (currentHours < weddingHours) {
-      days -= 1;
-    } else if (currentHours === weddingHours) {
-      // Check minutes.
-      const weddingMinutes = WEDDING_DATE.getMinutes();
-      const currentMinutes = currentDate.getMinutes();
-
-      if (currentMinutes < weddingMinutes) {
-        days -= 1;
-      } else if (currentMinutes === weddingMinutes) {
-        // Check seconds.
-        if (currentDate.getSeconds() < WEDDING_DATE.getSeconds()) {
-          days -= 1;
-        }
-      }
-    }
+  // Check hours.
+  if (days > 0 && daysRemainder > 0) {
+    days--;
   }
 
-  // If any of them is less than 1, set to maximum.
-  if (days < 0) {
-    days += getNumberOfDaysInMonth(currentDate);
-    months -= 1;
-  }
+  // // Check days.
+  // if (days < 0) {
+  //   days += getNumberOfDaysInMonth(biggerDate);
+  //   months--;
+  // }
 
-  if (months < 0) {
-    months = 12 + months;
-    years -= 1;
-  }
+  // if (months < 0) {
+  //   months = ONE_YEAR_IN_MONTHS + months;
+  //   years--;
+  // }
 
-  return { years, months, days, hours, minutes, seconds };
+  return {
+    result: processResult({ years, months, days, hours, minutes, seconds }),
+    type
+  };
 }
 
 // Helper functions.
@@ -95,4 +98,15 @@ function getNumberOfDaysInMonth(date: Date) {
   const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
   return endOfMonth.getDate();
+}
+
+function processResult(rawResult: { [index: string]: number }) {
+  const result: { [index: string]: number } = {};
+
+  Object.keys(rawResult).forEach((k) => {
+    const value = rawResult[k];
+    result[k] = value < 0 ? Math.abs(value) : value;
+  });
+
+  return result;
 }
