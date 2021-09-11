@@ -1,1 +1,10 @@
-examples/
+/examples
+/docs
+/lib
+/notes
+
+.prettierignore
+.prettierrc
+
+LICENSE
+README.md
