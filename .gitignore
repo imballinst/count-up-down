@@ -105,3 +105,4 @@ dist
 
 # Generated JS files from TS.
 /lib/
+.DS_Store
