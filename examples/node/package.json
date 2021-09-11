@@ -3,7 +3,13 @@
   "version": "0.0.2-alpha1",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "demo": "ts-node index.ts"
+  },
   "dependencies": {
     "count-up-down": "0.0.1"
+  },
+  "devDependencies": {
+    "ts-node": "10.2.1"
   }
 }

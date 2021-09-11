@@ -14,14 +14,17 @@ yarn
 To test, do this:
 
 ```bash
-node index.js
+yarn demo
 ```
 
 It will output something like this:
 
 ```bash
+yarn run v1.22.11
+$ ts-node index.ts
 {
   result: { years: 0, months: 0, days: 0, hours: 1, minutes: 0, seconds: 0 },
   type: 'countdown'
 }
+✨  Done in 1.45s.
 ```
