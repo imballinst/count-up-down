@@ -5,7 +5,8 @@ import * as CONSTANTS from '../../constants';
 build({
   entryPoints: [`${CONSTANTS.SRC_DIR}/index-node.js`],
   bundle: true,
-  outfile: 'dist/count-up-down-node.js',
+  minify: true,
+  outfile: 'dist/count-up-down-node.min.js',
   format: 'cjs',
   plugins: []
 }).catch((err) => {

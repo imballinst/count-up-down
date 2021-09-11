@@ -1,3 +1,6 @@
-const countUpDown = require('../../dist/count-up-down-node');
+const { calculate } = require('../../dist/count-up-down-node.min');
 
-console.log(countUpDown);
+const date = new Date();
+const date1HourBefore = new Date(date.getTime() - 3600 * 1000);
+
+console.log(calculate(date, date1HourBefore));
