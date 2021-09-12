@@ -74,7 +74,7 @@ yarn add count-up-down
 ### Prerequisites
 
 1. [Yarn](https://yarnpkg.com/) Classic (v1)
-2. [Node.js®] (>=14)
+2. [Node.js®](https://nodejs.org/) LTS (v14)
 
 After that, on root project, do this to install the dependencies:
 
