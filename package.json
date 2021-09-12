@@ -1,6 +1,6 @@
 {
   "name": "count-up-down",
-  "version": "0.0.2-alpha2",
+  "version": "0.0.2",
   "jsdelivr": "dist/count-up-down.min.js",
   "browser": "dist/count-up-down.min.js",
   "main": "lib/src/index-node.js",
