@@ -1,11 +1,8 @@
 examples/
 docs/
-lib/
 notes/
-dist/
 
 .prettierignore
 .prettierrc
 
-LICENSE
-README.md
+jest.config.js
