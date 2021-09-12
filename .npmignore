@@ -1,7 +1,8 @@
-/examples
-/docs
-/lib
-/notes
+examples/
+docs/
+lib/
+notes/
+dist/
 
 .prettierignore
 .prettierrc
