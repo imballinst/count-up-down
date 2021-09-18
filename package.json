@@ -18,11 +18,11 @@
   "author": "Try Ajitiono <ballinst@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently yarn:build:*",
+    "build": "concurrently yarn:build:* && bundle",
     "build:esm": "tsc --project tsconfig.build-esm.json",
     "build:cjs": "tsc --project tsconfig.build-cjs.json",
     "build:types": "tsc --project tsconfig.build-esm.json --emitDeclarationOnly --declaration --declarationDir dist/types",
-    "bundle": "ts-node lib/esm/scripts/build/index.js",
+    "bundle": "ts-node scripts/build/index.ts",
     "test": "jest",
     "test:watch": "jest --watch"
   },

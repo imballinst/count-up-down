@@ -4,7 +4,7 @@ import { BrowsersListPlugin } from '../../../plugins/browserslist';
 import * as CONSTANTS from '../../constants';
 
 build({
-  entryPoints: [`${CONSTANTS.SRC_DIR}/index.js`],
+  entryPoints: [`${CONSTANTS.DIST_DIR}/dist/cjs/index.js`],
   minify: true,
   bundle: true,
   outfile: 'dist/count-up-down.min.js',

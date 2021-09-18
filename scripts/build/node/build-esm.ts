@@ -3,7 +3,7 @@ import { build } from 'esbuild';
 import * as CONSTANTS from '../../constants';
 
 build({
-  entryPoints: [`${CONSTANTS.SRC_DIR}/index-node.js`],
+  entryPoints: [`${CONSTANTS.DIST_DIR}/esm/index-node.js`],
   bundle: true,
   minify: true,
   outfile: 'dist/count-up-down-node-esm.min.js',
