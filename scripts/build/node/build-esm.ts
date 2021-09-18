@@ -6,8 +6,8 @@ build({
   entryPoints: [`${CONSTANTS.SRC_DIR}/index-node.js`],
   bundle: true,
   minify: true,
-  outfile: 'dist/count-up-down-node.min.js',
-  format: 'cjs',
+  outfile: 'dist/count-up-down-node-esm.min.js',
+  format: 'esm',
   platform: 'node',
   plugins: []
 }).catch((err) => {

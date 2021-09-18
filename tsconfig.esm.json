@@ -2,9 +2,9 @@
   "include": ["./src/*.ts", "./scripts/**/*.ts"],
   "compilerOptions": {
     "target": "ES2015",
-    "outDir": "./lib/cjs",
+    "outDir": "./lib/esm",
     "declaration": true,
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "node",
     "lib": ["dom", "esnext"],
     "strict": true,
