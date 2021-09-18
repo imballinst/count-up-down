@@ -7,7 +7,7 @@
     "demo": "ts-node index.ts"
   },
   "dependencies": {
-    "count-up-down": "0.0.2"
+    "count-up-down": "0.1.0"
   },
   "devDependencies": {
     "ts-node": "10.2.1"
