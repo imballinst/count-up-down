@@ -103,6 +103,4 @@ dist
 # TernJS port file
 .tern-port
 
-# Generated JS files from TS.
-/lib/
 .DS_Store

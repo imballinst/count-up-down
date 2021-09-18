@@ -1,12 +1,12 @@
 {
-  "include": ["./src/*.ts", "./scripts/**/*.ts"],
+  "include": ["./src/*.ts"],
   "compilerOptions": {
     "target": "ES2015",
-    "outDir": "./lib/esm",
-    "declaration": true,
-    "module": "ESNext",
+    "outDir": "./dist/cjs",
+    "declaration": false,
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom"],
     "strict": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
