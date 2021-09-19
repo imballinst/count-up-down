@@ -750,17 +750,10 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
-count-up-down@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.0.2.tgz#a23ab7a4a5300addac0ab37a3ad58b816909b55d"
-  integrity sha512-zs5bFdJ+sVmKqjICvXCKX297c8sNNCVluiAYxGKtdmL78YNYJTY+cvXZfH8JAXKwjobdQCc8IMDjMrNWL5UyOw==
-
-count-up-down@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.1.1.tgz#5240b7f4b7f68c604b8ab191f03e57dd73a4d052"
-  integrity sha512-i0+o00NMEPgV8kzDrh+GdKom0HqcCrCyAd3UbMHZD27NcMeCWRajZLD0h3t56gEheZnT3TF0LVr6MvmdGnr0gw==
-  dependencies:
-    count-up-down "0.0.2"
+count-up-down@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.1.2.tgz#5f6a40339bf3b07c396dec945234ce7a893b6730"
+  integrity sha512-jzdy3BWvuecXhVGXaea1scWTTLZpWcnPkzUMbYhz83DY4n5XGijWrR/FiyKvk2RjI/B0ukS92Mc0OynVVBMajg==
 
 create-ecdh@^4.0.0:
   version "4.0.4"
