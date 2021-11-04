@@ -18,7 +18,7 @@
   "author": "Try Ajitiono <ballinst@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently yarn:build:* && bundle",
+    "build": "concurrently yarn:build:* && yarn bundle",
     "build:esm": "tsc --project tsconfig.build-esm.json",
     "build:cjs": "tsc --project tsconfig.build-cjs.json",
     "build:types": "tsc --project tsconfig.build-esm.json --emitDeclarationOnly --declaration --declarationDir dist/types",
