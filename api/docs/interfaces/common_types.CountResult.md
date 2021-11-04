@@ -26,7 +26,7 @@ The numbers can be negative (count down) or positive (count up).
 
 #### Defined in
 
-[common/types.ts:8](https://github.com/imballinst/count-up-down/blob/4ec7333/src/common/types.ts#L8)
+[common/types.ts:8](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/types.ts#L8)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[common/types.ts:9](https://github.com/imballinst/count-up-down/blob/4ec7333/src/common/types.ts#L9)
+[common/types.ts:9](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/types.ts#L9)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[common/types.ts:10](https://github.com/imballinst/count-up-down/blob/4ec7333/src/common/types.ts#L10)
+[common/types.ts:10](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/types.ts#L10)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[common/types.ts:7](https://github.com/imballinst/count-up-down/blob/4ec7333/src/common/types.ts#L7)
+[common/types.ts:7](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/types.ts#L7)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[common/types.ts:11](https://github.com/imballinst/count-up-down/blob/4ec7333/src/common/types.ts#L11)
+[common/types.ts:11](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/types.ts#L11)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[common/types.ts:6](https://github.com/imballinst/count-up-down/blob/4ec7333/src/common/types.ts#L6)
+[common/types.ts:6](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/types.ts#L6)

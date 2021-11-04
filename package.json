@@ -25,7 +25,7 @@
     "bundle": "ts-node scripts/build/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "generate:doc": "rm -rf api/docs && typedoc --plugin typedoc-plugin-markdown --readme none --out api/docs src/node src/browser src/common/*.ts"
+    "generate:doc": "rm -rf api/docs && typedoc --readme none --out api/docs src/node src/browser src/common/*.ts"
   },
   "devDependencies": {
     "@babel/core": "7.15.5",

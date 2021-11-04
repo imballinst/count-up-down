@@ -1,7 +1,6 @@
 /**
- * As opposed to the Node module, the browser module doesn't export anything. Instead,
- * the `calculate` function is exported to the `window` object. Additionally, there is
- * another `renderToDivs` function that can be used to render the numbers to the DOM.
+ * In the browser module, all functions are not only re-exported, but they are also exposed
+ * in the `window` object. This is for ease of use, so that we can call them directly in the browser.
  *
  * @module
  */
@@ -18,3 +17,5 @@ declare global {
 
 window.calculate = calculate;
 window.renderToDivs = renderToDivs;
+
+export { calculate, renderToDivs };
