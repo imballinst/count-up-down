@@ -1,3 +1,14 @@
+import { CountResult } from '../common/types';
+
+/**
+ * This functions renders the number of years, months, days, hours, minutes, and seconds to the DOM.
+ * Behind the scene, it also pads the numbers. For example, the number `9` becomes "09". To render a complete
+ * timer (from years to seconds), there must be elements in the DOM with the ID `years`, `months`, `days`, `hours`,
+ * `minutes`, and `seconds`. Partial rendering is also supported, e.g. if you only want to render `years`, `months`,
+ * and `days`, then only 3 elements with these IDs need to exist in the DOM.
+ *
+ * @param {CountResult} countResult The number of years, months, days, hours, minutes, and seconds in number.
+ */
 export function renderToDivs({
   years,
   months,
@@ -5,14 +16,7 @@ export function renderToDivs({
   hours,
   minutes,
   seconds
-}: {
-  years: number;
-  months: number;
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}) {
+}: CountResult) {
   // Fill into the divs.
   const yearsDiv = document.getElementById('years');
   const monthsDiv = document.getElementById('months');

@@ -1,3 +1,8 @@
+import { CountResult } from './types';
+
+// Types.
+type ResultKeys = keyof CountResult;
+
 // Constants.
 const ONE_MINUTE_IN_SECONDS = 60;
 
@@ -7,6 +12,14 @@ const ONE_DAY_IN_MILLISECONDS = ONE_DAY_IN_SECONDS * 1000;
 // Re-assign functions from JavaScript engine.
 const { floor } = Math;
 
+/**
+ * Calculates the difference of 2 dates. When the numbers inside `result` are negatives,
+ * then it means it is count down and when they are positives, then it means it is count up.
+ * This also reflects in the `type` field in the function return.
+ *
+ * @param date1 The first date to be compared (order doesn't matter)
+ * @param date2 The second date to be compared (order doesn't matter)
+ */
 export function calculate(date1 = new Date(), date2 = new Date()) {
   // Not sure what is the correct term, I use "smaller" and "bigger"
   // because technically as time progresses, the milliseconds also increases.
@@ -97,10 +110,18 @@ function getNumberOfDaysInMonth(date: Date) {
   return endOfMonth.getDate();
 }
 
-function processResult(rawResult: { [index: string]: number }) {
-  const result: { [index: string]: number } = {};
+function processResult(rawResult: CountResult) {
+  const result: CountResult = {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    months: 0,
+    seconds: 0,
+    years: 0
+  };
+  const keys = Object.keys(rawResult) as ResultKeys[];
 
-  Object.keys(rawResult).forEach((k) => {
+  keys.forEach((k) => {
     const value = rawResult[k];
     result[k] = value < 0 ? Math.abs(value) : value;
   });
