@@ -1,0 +1,11 @@
+name: Validate Generated Docs
+on: [push]
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: yarn
+      - run: yarn generate:docs
+      - run: yarn validate:docs

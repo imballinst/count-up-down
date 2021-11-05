@@ -60,21 +60,38 @@ We are using [jsDelivr](https://www.jsdelivr.com/) to distribute the package for
 To install the package, if you are using `npm`:
 
 ```bash
+# NPM.
 npm install --save count-up-down
-```
 
-Or, if you are using `yarn`:
-
-```bash
+# Or, if you are using yarn:
 yarn add count-up-down
 ```
+
+Then, do this in your file:
+
+```ts
+import { calculate } from 'count-up-down';
+
+const ONE_HOUR_AGO = new Date(new Date().getTime() - 3600 * 1000);
+
+console.log(calculate(new Date(), ONE_HOUR_AGO));
+```
+
+## Documentation
+
+The API documentation is generated using [`typedoc`](https://github.com/TypeStrong/typedoc). Below are the links to the browser and Node package:
+
+1. [Browser](./api/docs/modules/browser.md)
+2. [Node](./api/docs/modules/node.md)
+
+To re-generate the documentation, we can do `yarn generate:doc` on the the root of this repository.
 
 ## Development
 
 ### Prerequisites
 
 1. [Yarn](https://yarnpkg.com/) Classic (v1)
-2. [Node.js®](https://nodejs.org/) LTS (v14)
+2. [Node.js®](https://nodejs.org/) LTS (at least v14)
 
 After that, on root project, do this to install the dependencies:
 

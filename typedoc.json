@@ -1,0 +1,8 @@
+{
+  "readme": "none",
+  "out": "api/docs",
+  "gitRevision": "main",
+  "entryPoints": ["src/node", "src/browser", "src/common"],
+  "entryPointStrategy": "expand",
+  "cleanOutputDir": true
+}
