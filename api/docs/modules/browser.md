@@ -45,4 +45,4 @@ and `days`, then only 3 elements with these IDs need to exist in the DOM.
 
 #### Defined in
 
-[browser/render.ts:12](https://github.com/imballinst/count-up-down/blob/a0f0581/src/browser/render.ts#L12)
+[browser/render.ts:12](https://github.com/imballinst/count-up-down/blob/main/src/browser/render.ts#L12)

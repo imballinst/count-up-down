@@ -36,4 +36,4 @@ This also reflects in the `type` field in the function return.
 
 #### Defined in
 
-[common/calculate.ts:23](https://github.com/imballinst/count-up-down/blob/a0f0581/src/common/calculate.ts#L23)
+[common/calculate.ts:23](https://github.com/imballinst/count-up-down/blob/main/src/common/calculate.ts#L23)
