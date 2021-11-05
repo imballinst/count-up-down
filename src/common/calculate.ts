@@ -13,7 +13,7 @@ const ONE_DAY_IN_MILLISECONDS = ONE_DAY_IN_SECONDS * 1000;
 const { floor } = Math;
 
 /**
- * Calculates the difference of 22 dates. When the numbers inside `result` are negatives,
+ * Calculates the difference of 2 dates. When the numbers inside `result` are negatives,
  * then it means it is count down and when they are positives, then it means it is count up.
  * This also reflects in the `type` field in the function return.
  *
