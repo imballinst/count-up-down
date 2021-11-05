@@ -1,8 +1,10 @@
 examples/
 docs/
 notes/
+api/
 
 .prettierignore
 .prettierrc
 
 jest.config.js
+typedoc.json
