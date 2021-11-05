@@ -25,7 +25,8 @@
     "bundle": "ts-node scripts/build/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "generate:docs": "typedoc"
+    "generate:docs": "typedoc",
+    "validate:docs": "ts-node scripts/ci/validate-docs.ts"
   },
   "devDependencies": {
     "@babel/core": "7.15.5",
@@ -37,6 +38,7 @@
     "browserslist": "4.16.8",
     "concurrently": "6.2.1",
     "esbuild": "0.12.24",
+    "execa": "5.1.1",
     "jest": "27.1.0",
     "ts-node": "10.2.1",
     "typedoc": "0.22.7",
