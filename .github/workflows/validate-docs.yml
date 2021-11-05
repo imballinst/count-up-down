@@ -8,3 +8,4 @@ jobs:
         uses: actions/checkout@v2
       - run: yarn
       - run: yarn generate:docs
+      - run: yarn validate:docs
