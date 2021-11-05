@@ -49,10 +49,10 @@ arg@^4.1.0:
   resolved "https://registry.yarnpkg.com/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089"
   integrity sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==
 
-count-up-down@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.1.2.tgz#5f6a40339bf3b07c396dec945234ce7a893b6730"
-  integrity sha512-jzdy3BWvuecXhVGXaea1scWTTLZpWcnPkzUMbYhz83DY4n5XGijWrR/FiyKvk2RjI/B0ukS92Mc0OynVVBMajg==
+count-up-down@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.2.0.tgz#19088e38417fc72020174f561ca24cc2a9a1d4b4"
+  integrity sha512-rqqCh+T+qUUf8OEeS11ngaLPsHY52PHkmJj8OGuhO6y8y+Q02p2xhKhGEkxB03Vz5wgUiMl1dzQ+D+4yjTMRfQ==
 
 create-require@^1.1.0:
   version "1.1.1"
