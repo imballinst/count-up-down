@@ -29,6 +29,7 @@
     "validate:docs": "ts-node scripts/ci/validate-docs.ts"
   },
   "devDependencies": {
+    "@actions/core": "1.6.0",
     "@babel/core": "7.15.5",
     "@babel/preset-env": "7.15.4",
     "@babel/preset-typescript": "7.15.0",
