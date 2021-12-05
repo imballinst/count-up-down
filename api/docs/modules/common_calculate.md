@@ -22,8 +22,8 @@ This also reflects in the `type` field in the function return.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `date1` | `Date` | The first date to be compared (order doesn't matter) |
-| `date2` | `Date` | The second date to be compared (order doesn't matter) |
+| `date1` | `Date` | The base date |
+| `date2` | `Date` | The second date to be compared |
 
 #### Returns
 
@@ -36,4 +36,4 @@ This also reflects in the `type` field in the function return.
 
 #### Defined in
 
-[common/calculate.ts:23](https://github.com/imballinst/count-up-down/blob/main/src/common/calculate.ts#L23)
+[common/calculate.ts:28](https://github.com/imballinst/count-up-down/blob/main/src/common/calculate.ts#L28)
