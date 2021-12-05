@@ -750,10 +750,10 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
-count-up-down@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.2.2.tgz#90c9e9aab40f60acf9382b87dfab860ba9d01992"
-  integrity sha512-hg+F5qifLyvHiBlo4KMfrEGKSwJTV4ljdfuo/fGJJGXxM7JezG2BSsMvlEHdmbPVUuiHjbgtipC+8GYAUmbnQg==
+count-up-down@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/count-up-down/-/count-up-down-0.2.3.tgz#2856614335b76a983467188160794c003790b9cc"
+  integrity sha512-NzFPT0zdN3XMbziu8OrH7JrXKzUTS+h8Yc/yy6Wb43J+6Qth2taC5B2sMdjUYJikf4EhEBSsGcr7N9XMwoIu5w==
 
 create-ecdh@^4.0.0:
   version "4.0.4"

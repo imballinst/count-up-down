@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "count-up-down": "0.2.2",
+    "count-up-down": "0.2.3",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
