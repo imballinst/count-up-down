@@ -6,9 +6,14 @@ type ResultKeys = keyof CountResult;
 // Constants.
 const ONE_MINUTE_IN_SECONDS = 60;
 
+const ONE_HOUR_IN_MINUTES = 60;
 const ONE_HOUR_IN_SECONDS = ONE_MINUTE_IN_SECONDS * 60;
+
+const ONE_DAY_IN_HOURS = 24;
 const ONE_DAY_IN_SECONDS = ONE_HOUR_IN_SECONDS * 24;
 const ONE_DAY_IN_MILLISECONDS = ONE_DAY_IN_SECONDS * 1000;
+
+const ONE_YEAR_IN_MONTHS = 12;
 // Re-assign functions from JavaScript engine.
 const { floor } = Math;
 
@@ -17,85 +22,107 @@ const { floor } = Math;
  * then it means it is count down and when they are positives, then it means it is count up.
  * This also reflects in the `type` field in the function return.
  *
- * @param date1 The first date to be compared (order doesn't matter)
- * @param date2 The second date to be compared (order doesn't matter)
+ * @param anchorDate The anchor date
+ * @param comparedDate The second date to be compared
  */
-export function calculate(date1 = new Date(), date2 = new Date()) {
-  // Not sure what is the correct term, I use "smaller" and "bigger"
-  // because technically as time progresses, the milliseconds also increases.
-  let smallerDate = date1;
-  let biggerDate = date2;
-  let years: number;
-  let months: number;
-  let days: number;
-  let hours: number;
-  let minutes: number;
-  let seconds: number;
+export function calculate(anchorDate = new Date(), comparedDate = new Date()) {
+  let years = 0;
+  let months = 0;
+  let days = 0;
+  let hours = 0;
+  let minutes = 0;
+  let seconds = 0;
   let type: 'countdown' | 'countup' | 'exact';
 
   // Get raw time.
-  let smallerMilliSeconds = smallerDate.getTime();
-  let biggerMilliSeconds = biggerDate.getTime();
-  let diff = biggerMilliSeconds - smallerMilliSeconds;
+  const anchorDateMs = anchorDate.getTime();
+  const comparedDateMs = comparedDate.getTime();
+  const diff = anchorDateMs - comparedDateMs;
 
   if (diff < 0) {
-    type = 'countdown';
-    diff = Math.abs(diff);
-    // Flip the variables.
-    biggerDate = date1;
-    biggerMilliSeconds = date1.getTime();
-
-    smallerDate = date2;
-    smallerMilliSeconds = date2.getTime();
-  } else if (diff > 0) {
     type = 'countup';
+  } else if (diff > 0) {
+    type = 'countdown';
   } else {
     type = 'exact';
   }
 
-  // We can cut off years first as the number of days is static, 365 or 366.
-  years = biggerDate.getFullYear() - smallerDate.getFullYear();
+  // Start from seconds first.
+  seconds = anchorDate.getSeconds() - comparedDate.getSeconds();
 
-  // For months and days, however, it's a little bit tricky.
-  const smallerMonth = smallerDate.getMonth();
-  const biggerMonth = biggerDate.getMonth();
-
-  // Don't forget to subtract this if date, hours, minutes, seconds is lesser.
-  months = biggerMonth - smallerMonth;
-
-  // Days.
-  const smallerDateInMonth = smallerDate.getDate();
-  const biggerDateInMonth = biggerDate.getDate();
-
-  days = biggerDateInMonth - smallerDateInMonth;
-
-  // We use this to calculate time.
-  const daysRemainder = Math.floor((diff % ONE_DAY_IN_MILLISECONDS) / 1000);
-
-  // Time.
-  hours = floor(daysRemainder / ONE_HOUR_IN_SECONDS);
-  const hoursRemainder = daysRemainder % ONE_HOUR_IN_SECONDS;
-
-  minutes = floor(hoursRemainder / ONE_MINUTE_IN_SECONDS);
-  const minutesRemainder = hoursRemainder % ONE_MINUTE_IN_SECONDS;
-
-  seconds = minutesRemainder % ONE_MINUTE_IN_SECONDS;
-
-  // Check hours.
-  if (days > 0 && daysRemainder > 0) {
-    days--;
+  if (seconds < 0) {
+    // When the seconds is negative, then we will take `type` into consideration.
+    if (type === 'countdown') {
+      seconds += ONE_MINUTE_IN_SECONDS;
+      minutes--;
+    } else {
+      seconds = Math.abs(seconds);
+    }
   }
 
-  // // Check days.
-  // if (days < 0) {
-  //   days += getNumberOfDaysInMonth(biggerDate);
-  //   months--;
-  // }
+  // Minutes.
+  minutes += anchorDate.getMinutes() - comparedDate.getMinutes();
 
-  // if (months < 0) {
-  //   months = ONE_YEAR_IN_MONTHS + months;
-  //   years--;
-  // }
+  if (minutes < 0) {
+    // When the minutes is negative, then we will take `type` into consideration.
+    if (type === 'countdown') {
+      minutes += ONE_HOUR_IN_MINUTES;
+      hours--;
+    } else {
+      minutes = Math.abs(minutes);
+    }
+  }
+
+  // Hours.
+  hours += anchorDate.getHours() - comparedDate.getHours();
+
+  if (hours < 0) {
+    // When the hours is negative, then we will take `type` into consideration.
+    if (type === 'countdown') {
+      hours += ONE_DAY_IN_HOURS;
+      days--;
+    } else {
+      hours = Math.abs(hours);
+    }
+  }
+
+  // Days.
+  days += anchorDate.getDate() - comparedDate.getDate();
+
+  if (days < 0) {
+    // When the days is negative, then we will take `type` into consideration.
+    if (type === 'countdown') {
+      days += getNumberOfDaysInMonth(anchorDate);
+      months--;
+    } else {
+      days = Math.abs(days);
+    }
+  }
+
+  // Months.
+  months += anchorDate.getMonth() - comparedDate.getMonth();
+
+  if (months < 0) {
+    // When the months is negative, then we will take `type` into consideration.
+    if (type === 'countdown') {
+      months += ONE_YEAR_IN_MONTHS;
+      years--;
+    } else {
+      months = Math.abs(months);
+    }
+  }
+
+  // Years.
+  years += anchorDate.getFullYear() - comparedDate.getFullYear();
+
+  if (years < 0) {
+    // When the years is negative, then we will take `type` into consideration.
+    if (type === 'countdown') {
+      years += ONE_YEAR_IN_MONTHS;
+    } else {
+      years = Math.abs(years);
+    }
+  }
 
   return {
     result: processResult({ years, months, days, hours, minutes, seconds }),
