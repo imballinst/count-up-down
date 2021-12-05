@@ -23,6 +23,7 @@
     "build:cjs": "tsc --project tsconfig.build-cjs.json",
     "build:types": "tsc --project tsconfig.build-esm.json --emitDeclarationOnly --declaration --declarationDir dist/types",
     "bundle": "ts-node scripts/build/index.ts",
+    "preversion": "yarn build && yarn generate:docs",
     "test": "jest",
     "test:watch": "jest --watch",
     "generate:docs": "typedoc",
