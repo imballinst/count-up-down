@@ -27,7 +27,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "generate:docs": "typedoc",
-    "validate:docs": "ts-node scripts/ci/validate-docs.ts"
+    "validate:docs": "ts-node scripts/ci/validate-docs.ts",
+    "examples:bump": "cd examples/next && yarn add count-up-down --exact; cd ../node && yarn add count-up-down --exact"
   },
   "devDependencies": {
     "@actions/core": "1.6.0",
