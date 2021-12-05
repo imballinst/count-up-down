@@ -1,6 +1,6 @@
 {
   "name": "count-up-down",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "jsdelivr": "dist/count-up-down.min.js",
   "browser": "dist/count-up-down.min.js",
   "main": "dist/cjs/node/index.js",
