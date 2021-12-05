@@ -40,7 +40,7 @@ We are using [jsDelivr](https://www.jsdelivr.com/) to distribute the package for
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/count-up-down@0.2.0/dist/count-up-down.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/count-up-down@0.2.1/dist/count-up-down.min.js"></script>
 <script>
   const ONE_HOUR_AGO = new Date(new Date().getTime() - 3600 * 1000);
 
