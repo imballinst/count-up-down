@@ -205,3 +205,37 @@ describe('years', () => {
     expect(type).toBe('countup');
   });
 });
+
+describe('random stuff', () => {
+  test('2021-12-03T12:10:00.000Z to 2021-12-05T11:15:24.219Z', () => {
+    const { result, type } = calculate(
+      new Date('2021-12-03T12:10:00.000Z'),
+      new Date('2021-12-05T11:15:24.219Z')
+    );
+
+    expect(result.years).toBe(0);
+    expect(result.months).toBe(0);
+    expect(result.days).toBe(1);
+    expect(result.hours).toBe(23);
+    expect(result.minutes).toBe(5);
+    expect(result.seconds).toBe(24);
+
+    expect(type).toBe('countup');
+  });
+
+  test('2021-12-05T11:15:24.219Z to 2021-12-03T12:10:00.000Z', () => {
+    const { result, type } = calculate(
+      new Date('2021-12-05T11:15:24.219Z'),
+      new Date('2021-12-03T09:45:40.000Z')
+    );
+
+    expect(result.years).toBe(0);
+    expect(result.months).toBe(0);
+    expect(result.days).toBe(2);
+    expect(result.hours).toBe(1);
+    expect(result.minutes).toBe(29);
+    expect(result.seconds).toBe(44);
+
+    expect(type).toBe('countdown');
+  });
+});
